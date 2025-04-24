@@ -7,7 +7,7 @@ type props = {
 };
 const GoalItem = ({ itemData, deleteGoal }: props) => {
   return (
-    <Pressable onPress={() => deleteGoal(itemData.id)}>
+    <Pressable onPress={() => deleteGoal(itemData.id)} style={({ pressed }) => pressed && styles.pressedItem}>
       <View>
         <Text style={styles.goalListItem}>{itemData.text}</Text>
       </View>
@@ -26,4 +26,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 15,
   },
+  pressedItem: {
+    opacity: 0.5,
+  }
 });
